@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'com.nextuple'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'javax.activation', name: 'javax.activation-api', version: '1.2.0'
+    compile group: 'javax.mail', name: 'mail', version: '1.4.1'
+    compile group: "com.twilio.sdk", name: "twilio", version: "7.45.+"
+}
