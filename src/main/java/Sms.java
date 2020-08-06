@@ -72,29 +72,29 @@ public class Sms {
         String AUTH_TOKEN = "";
 
         // Create object
-        Sms object = new Sms(ACCOUNT_SID, AUTH_TOKEN);
+        Sms sms = new Sms(ACCOUNT_SID, AUTH_TOKEN);
 
         // .fetch("sender", "orderNo", 12) will search for an email in which the sender number CONTAINS Argument 1, the sender IS Argument 2, and Argument 3 determines how many texts should be searched starting at the latest text.
         // Arguments are case sensitive
         // The function returns the full message as a String
-        // .fetch() needs to be called to initialize .getSender(), .getBody(), .getMessage(), .getLinks(), etc.
+        // .fetch() needs to be called to initialize .getSender(), .getBody(), .getMessage(), .getLinks(), etc
         // Everytime .fetch() is called all the other information will be reinitialized according to the search parameters given
         // Fetch starts searching from the most recent message in the twilio message inbox and outbox and once it finds an email that meets all of the search criterion it stop the search
-        String text = object.fetch("+10123456789", "NXTUPLE-123456789-21",1000000000);
+        String text = sms.fetch("+10123456789", "NXTUPLE-123456789-21",1000000000);
 
         // .getSender() returns the sender phone number as a String
-        System.out.println("Sender: " + object.getSender() + "\n");
+        System.out.println("Sender: " + sms.getSender() + "\n");
 
         // .getBody() returns the body as a String
-        System.out.println("Body: " + object.getBody()+ "\n");
+        System.out.println("Body: " + sms.getBody()+ "\n");
 
         // .getMessage() returns the full text message with receiver, sender, body, and DateTime information as a String
-        System.out.println("Message: " + object.getMessage()+ "\n");
+        System.out.println("Message: " + sms.getMessage()+ "\n");
 
         // .getLinks() will return ONLY get all the bit.ly links in the message body as an ArrayList of Strings
-        ArrayList<String> links = object.getLinks("https://bit.ly");
+        ArrayList<String> smsLinks = sms.getLinks("https://bit.ly");
         System.out.println("Links Below:");
-        for(String link: links)
+        for(String link: smsLinks)
             System.out.println(link);
     }
 
